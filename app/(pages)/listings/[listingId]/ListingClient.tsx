@@ -4,7 +4,6 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
-import { Reservation } from "@prisma/client";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Range } from "react-date-range";
 
