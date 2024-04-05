@@ -9,6 +9,8 @@ import LoginModal from "@airbnb/components/fragments/LoginModal";
 import getCurrentUser from "@airbnb/actions/getCurrentUser";
 import RentModal from "@airbnb/components/fragments/RentModal";
 import SearchModal from "@airbnb/components/fragments/SearchModal";
+import { Suspense } from "react";
+import Loader from "./components/elements/Loader";
 
 const font = Nunito({ subsets: ["latin"] });
 
@@ -29,10 +31,12 @@ export default async function RootLayout({
         <ToastProvider />
         <LoginModal />
         <RegisterModal />
-        <SearchModal />
         <RentModal />
-        <Navbar currentUser={currentUser} />
-        <div className="pb-20 pt-28">{children}</div>
+        <Suspense fallback={<Loader />}>
+          <SearchModal />
+          <Navbar currentUser={currentUser} />
+          <div className="pb-20 pt-28">{children}</div>
+        </Suspense>
       </body>
     </html>
   );

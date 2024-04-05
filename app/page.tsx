@@ -4,6 +4,8 @@ import getListings, { IListingsParams } from "@airbnb/actions/getListings";
 import ListingCard from "@airbnb/components/fragments/listings/ListingCard";
 import getCurrentUser from "@airbnb/actions/getCurrentUser";
 
+export const dynamic = "force-dynamic";
+
 interface HomeProps {
   searchParams: IListingsParams;
 }
